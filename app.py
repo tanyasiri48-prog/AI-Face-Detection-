@@ -202,6 +202,94 @@ st.markdown(
     stroke: #ffffff !important;
 }
 
+/* ==================================================
+   Responsive สำหรับโทรศัพท์
+================================================== */
+
+@media screen and (max-width: 768px) {
+
+    .block-container {
+        padding-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .main-title {
+        font-size: 38px;
+        line-height: 1.1;
+        margin-bottom: 14px;
+    }
+
+    .sub-title {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 22px;
+    }
+
+    .device-box {
+        padding: 13px 14px;
+        margin-bottom: 18px;
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 27px !important;
+    }
+
+    h3 {
+        font-size: 23px !important;
+    }
+
+    /* ลดช่องว่างระหว่างคอลัมน์เมื่อแสดงเรียงลงมา */
+    [data-testid="stHorizontalBlock"] {
+        gap: 1rem !important;
+    }
+
+    /* กล่องอัปโหลดให้เต็มความกว้าง */
+    [data-testid="stFileUploaderDropzone"] {
+        padding: 18px 14px !important;
+        min-height: auto !important;
+    }
+
+    /* จัดเนื้อหาในกล่อง Upload ให้ไม่ใหญ่เกินไป */
+    [data-testid="stFileUploaderDropzone"] section {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+
+    [data-testid="stFileUploaderDropzone"] button {
+        min-height: 44px !important;
+        padding: 8px 18px !important;
+        font-size: 16px !important;
+    }
+
+    [data-testid="stFileUploaderDropzoneInstructions"] {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+
+    .real-result,
+    .fake-result {
+        padding: 20px;
+        font-size: 27px;
+    }
+
+    .result-description {
+        font-size: 16px;
+    }
+
+    .file-info {
+        font-size: 14px;
+    }
+
+    .footer {
+        margin-top: 30px;
+        font-size: 12px;
+    }
+}
+
     </style>
     """,
     unsafe_allow_html=True
