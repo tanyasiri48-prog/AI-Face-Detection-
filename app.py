@@ -30,15 +30,16 @@ st.markdown(
         background:
             radial-gradient(
                 circle at top left,
-                rgba(63, 131, 248, 0.15),
+                rgba(63, 131, 248, 0.14),
                 transparent 35%
             ),
             radial-gradient(
                 circle at bottom right,
-                rgba(98, 213, 174, 0.12),
+                rgba(98, 213, 174, 0.10),
                 transparent 35%
             ),
             #f6f8fc;
+        color: #000000;
     }
 
     .block-container {
@@ -51,7 +52,7 @@ st.markdown(
         text-align: center;
         font-size: 56px;
         font-weight: 800;
-        color: #173b57;
+        color: #000000;
         line-height: 1.15;
         margin-bottom: 8px;
     }
@@ -59,26 +60,28 @@ st.markdown(
     .sub-title {
         text-align: center;
         font-size: 20px;
-        color: #64748b;
+        color: #000000;
         margin-bottom: 30px;
     }
 
     .device-box {
-        background: rgba(255, 255, 255, 0.88);
+        background: rgba(255, 255, 255, 0.92);
         border: 1px solid #dbe5f0;
         border-radius: 14px;
         padding: 14px 18px;
         margin-bottom: 24px;
         box-shadow: 0 8px 24px rgba(31, 50, 81, 0.06);
+        color: #000000;
     }
 
     .section-card {
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(255, 255, 255, 0.95);
         border: 1px solid #e0e7ef;
         border-radius: 18px;
         padding: 20px;
         box-shadow: 0 10px 28px rgba(31, 50, 81, 0.07);
         margin-bottom: 16px;
+        color: #000000;
     }
 
     .real-result {
@@ -91,7 +94,7 @@ st.markdown(
         border-radius: 18px;
         padding: 28px;
         text-align: center;
-        color: #176b38;
+        color: #000000;
         font-size: 32px;
         font-weight: 800;
         margin-bottom: 20px;
@@ -107,7 +110,7 @@ st.markdown(
         border-radius: 18px;
         padding: 28px;
         text-align: center;
-        color: #ad2525;
+        color: #000000;
         font-size: 32px;
         font-weight: 800;
         margin-bottom: 20px;
@@ -117,6 +120,7 @@ st.markdown(
         font-size: 17px;
         font-weight: 500;
         margin-top: 5px;
+        color: #000000;
     }
 
     .file-info {
@@ -125,12 +129,12 @@ st.markdown(
         border-radius: 12px;
         padding: 13px 16px;
         margin-top: 12px;
-        color: #334155;
+        color: #000000;
     }
 
     .footer {
         text-align: center;
-        color: #718096;
+        color: #000000;
         font-size: 14px;
         margin-top: 45px;
         padding-top: 22px;
@@ -144,11 +148,21 @@ st.markdown(
     }
 
     div[data-testid="stMetric"] {
-        background-color: rgba(255, 255, 255, 0.92);
+        background-color: rgba(255, 255, 255, 0.95);
         border: 1px solid #e0e7ef;
         padding: 16px;
         border-radius: 14px;
         box-shadow: 0 6px 18px rgba(31, 50, 81, 0.05);
+        color: #000000;
+    }
+
+    div[data-testid="stMetricLabel"],
+    div[data-testid="stMetricValue"] {
+        color: #000000;
+    }
+
+    h1, h2, h3, h4, p, label, span {
+        color: #000000;
     }
 
     </style>
@@ -204,7 +218,6 @@ st.markdown(
 
 @st.cache_resource
 def load_model():
-
     model = models.resnet50(weights=None)
 
     model.fc = nn.Linear(
@@ -218,26 +231,19 @@ def load_model():
     )
 
     model.load_state_dict(state_dict)
-
     model = model.to(device)
-
     model.eval()
 
     return model
 
 
 try:
-
     model = load_model()
-
     st.success("โหลดโมเดล ResNet50 สำเร็จ")
 
 except Exception as error:
-
     st.error("ไม่สามารถโหลดโมเดลได้")
-
     st.code(str(error))
-
     st.stop()
 
 
@@ -250,7 +256,6 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-# ต้องตรงกับลำดับคลาสตอนฝึกโมเดล
 class_names = ["FAKE", "REAL"]
 
 
@@ -269,11 +274,6 @@ left_column, right_column = st.columns(
 # ==================================================
 
 with left_column:
-
-    st.markdown(
-        '<div class="section-card">',
-        unsafe_allow_html=True
-    )
 
     st.subheader("📤 อัปโหลดรูปภาพ")
 
@@ -305,22 +305,12 @@ with left_column:
             unsafe_allow_html=True
         )
 
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
-    )
-
 
 # ==================================================
 # 9. ฝั่งขวา: ตรวจสอบและแสดงผล
 # ==================================================
 
 with right_column:
-
-    st.markdown(
-        '<div class="section-card">',
-        unsafe_allow_html=True
-    )
 
     st.subheader("🔍 ผลการตรวจสอบ")
 
@@ -345,13 +335,10 @@ with right_column:
             ):
 
                 input_tensor = transform(image)
-
                 input_tensor = input_tensor.unsqueeze(0)
-
                 input_tensor = input_tensor.to(device)
 
                 with torch.no_grad():
-
                     output = model(input_tensor)
 
                     probabilities = torch.softmax(
@@ -499,11 +486,6 @@ with right_column:
                 st.success(
                     "โมเดลมีความมั่นใจในผลการตรวจสอบค่อนข้างสูง"
                 )
-
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
-    )
 
 
 # ==================================================
