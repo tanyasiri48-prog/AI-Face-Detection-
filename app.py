@@ -55,26 +55,33 @@ st.write(os.getcwd())
 # Load Model
 # =====================================
 
-model = models.resnet50(weights=None)
+@st.cache_resource
+def load_model():
 
-model.fc = nn.Linear(
-    model.fc.in_features,
-    2
-)
+    model = models.resnet50(weights=None)
 
-model.load_state_dict(
-    torch.load(
-        "best_model.pth",
-        map_location=device
+    model.fc = nn.Linear(
+        model.fc.in_features,
+        2
     )
-)
 
-model.to(device)
+    model.load_state_dict(
+        torch.load(
+            "best_model.pth",
+            map_location=device
+        )
+    )
 
-model.eval()
+    model = model.to(device)
+
+    model.eval()
+
+    return model
+
+
+model = load_model()
 
 st.success("โหลดโมเดลสำเร็จ")
-
 
 # =====================================
 # Image Transform
