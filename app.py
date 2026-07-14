@@ -161,9 +161,16 @@ st.markdown(
         color: #000000;
     }
 
-    h1, h2, h3, h4, p, label, span {
-        color: #000000;
-    }
+    /* ตัวอักษรสีดำเฉพาะพื้นที่เนื้อหาหลัก */
+[data-testid="stMain"] h1,
+[data-testid="stMain"] h2,
+[data-testid="stMain"] h3,
+[data-testid="stMain"] h4,
+[data-testid="stMain"] p,
+[data-testid="stMain"] label {
+    color: #000000;
+}
+
 /* File Uploader สำหรับ Light Mode */
 [data-testid="stFileUploaderDropzone"] {
     background-color: #252833 !important;
