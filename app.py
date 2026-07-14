@@ -164,35 +164,42 @@ st.markdown(
     h1, h2, h3, h4, p, label, span {
         color: #000000;
     }
-* กล่องอัปโหลด: คงพื้นหลังเดิม */
-div[data-testid="stFileUploaderDropzone"] {
-    color: #ffffff !important;
-}
+/* ==================================================
+   FILE UPLOADER — กล่องเดิม แต่ข้อความเป็นสีขาว
+================================================== */
 
 /* ข้อความรายละเอียดไฟล์ */
-div[data-testid="stFileUploaderDropzone"] small,
-div[data-testid="stFileUploaderDropzone"] span,
-div[data-testid="stFileUploaderDropzone"] p {
+[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] {
     color: #ffffff !important;
 }
 
-/* ปุ่ม Upload ให้เป็นพื้นเข้ม ตัวอักษรขาว */
-div[data-testid="stFileUploaderDropzone"] button {
+[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] small,
+[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] span,
+[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] p,
+[data-testid="stFileUploaderDropzoneInstructions"] {
+    color: #ffffff !important;
+}
+
+/* ปุ่ม Upload */
+[data-testid="stFileUploader"] button,
+[data-testid="stFileUploader"] [data-testid="stBaseButton-secondary"] {
     background-color: #171a22 !important;
     border: 1px solid #4b5563 !important;
     color: #ffffff !important;
 }
 
-/* ข้อความและไอคอนในปุ่ม */
-div[data-testid="stFileUploaderDropzone"] button *,
-div[data-testid="stFileUploaderDropzone"] button span,
-div[data-testid="stFileUploaderDropzone"] button p {
+/* ข้อความทุกส่วนภายในปุ่ม */
+[data-testid="stFileUploader"] button *,
+[data-testid="stFileUploader"] [data-testid="stBaseButton-secondary"] * {
     color: #ffffff !important;
 }
 
-div[data-testid="stFileUploaderDropzone"] button svg {
-    fill: #ffffff !important;
+/* ไอคอน Upload */
+[data-testid="stFileUploader"] button svg,
+[data-testid="stFileUploader"] button svg path {
     color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
 }
     </style>
     """,
