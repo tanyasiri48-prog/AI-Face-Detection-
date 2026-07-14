@@ -209,7 +209,7 @@ st.markdown(
 @media screen and (max-width: 768px) {
 
     .block-container {
-        padding-top: 2rem;
+        padding-top: 4rem;
         padding-left: 1rem;
         padding-right: 1rem;
         padding-bottom: 2rem;
