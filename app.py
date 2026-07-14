@@ -71,7 +71,7 @@ st.markdown(
         padding: 14px 18px;
         margin-bottom: 24px;
         box-shadow: 0 8px 24px rgba(31, 50, 81, 0.06);
-        color: #000000;
+        color: #FFFFFF;
     }
 
     .section-card {
