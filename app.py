@@ -201,25 +201,7 @@ st.markdown(
     fill: #ffffff !important;
     stroke: #ffffff !important;
 }
-/* แก้สี Toolbar ด้านบนของ Streamlit */
-[data-testid="stToolbar"] {
-    color: #ffffff !important;
-}
 
-[data-testid="stToolbar"] button,
-[data-testid="stToolbar"] button *,
-[data-testid="stToolbar"] svg,
-[data-testid="stToolbar"] svg path {
-    color: #ffffff !important;
-    fill: #ffffff !important;
-    stroke: #ffffff !important;
-}
-
-/* แก้สีเมนูที่เปิดจากปุ่มสามจุด */
-[role="menu"],
-[role="menu"] * {
-    color: inherit !important;
-}
     </style>
     """,
     unsafe_allow_html=True
