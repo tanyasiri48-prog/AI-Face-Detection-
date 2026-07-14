@@ -165,11 +165,41 @@ st.markdown(
         color: #000000;
     }
 
+      /* ==================================================
+       ปรับสี File Uploader
+    ================================================== */
+
+    div[data-testid="stFileUploaderDropzone"] {
+        color: #ffffff !important;
+    }
+
+    div[data-testid="stFileUploaderDropzone"] small,
+    div[data-testid="stFileUploaderDropzone"] span,
+    div[data-testid="stFileUploaderDropzone"] p {
+        color: #ffffff !important;
+    }
+
+    div[data-testid="stFileUploaderDropzone"] button {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #ffffff !important;
+        border-radius: 10px !important;
+    }
+
+    div[data-testid="stFileUploaderDropzone"] button p,
+    div[data-testid="stFileUploaderDropzone"] button span {
+        color: #000000 !important;
+    }
+
+    div[data-testid="stFileUploaderDropzone"] button svg {
+        fill: #000000 !important;
+        color: #000000 !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # ==================================================
 # 3. หัวเว็บ
